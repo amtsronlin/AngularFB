@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 @Component({
@@ -8,23 +8,24 @@ import { MatDialog } from '@angular/material';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  url = "http://locahost:8080/api/login";
-  constructor(private router: Router, private http: HttpClient) { }
+  url = "/api/login";
+
+  constructor(private router: Router, private http: HttpClient) {}
   username: string;
   password: string;
+  headers: HttpHeaders =  new HttpHeaders({
+    'Content-Type': 'application/json',
+    'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8'
+  });
   ngOnInit() {
   }
   login(): void {
-    const user = { username: this.username, password: this.password};
-    this.http.post(this.url, user)
+    const user = { userName: "user", password: "password"};
+    console.log(user);
+    this.http.post(this.url, user, {headers: this.headers})
       .pipe().subscribe(hero => {
         console.log(hero);
         this.router.navigate(["user"]);
     });
-    // if (this.username === 'admin' && this.password === 'admin') {
-    //   this.router.navigate(["user"]);
-    // } else {
-    //   alert("Invalid credentials");
-    // }
   }
 }
