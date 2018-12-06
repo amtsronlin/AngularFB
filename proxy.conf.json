@@ -1,0 +1,6 @@
+    {
+        "/api/*": {
+            "target": "http://locahost:8080",
+            "secure": false
+        }
+    }
