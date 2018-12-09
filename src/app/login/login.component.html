@@ -25,7 +25,7 @@
     </mat-menu>
   </mat-toolbar-row>
 </mat-toolbar>
-<form class="example-form">
+
  <mat-card class="example-card">
     <mat-card-header>
       <mat-card-title>Login</mat-card-title>
@@ -34,7 +34,7 @@
       <div class="alert alert-danger" [hidden]="!error">
           There was a problem logging in. Please try again.
       </div>
-
+        <form class="example-form">
         <table class="example-full-width" cellspacing="0">
           <tr>
             <td>
@@ -51,11 +51,10 @@
             </td>
           </tr>
         </table>
-
+      </form>
       <mat-spinner [style.display]="showSpinner ? 'block' : 'none'"></mat-spinner>
     </mat-card-content>
     <mat-card-actions>
       <button mat-raised-button type="button" (click)="login()" color="primary">Login</button>
     </mat-card-actions>
   </mat-card>
-</form>
