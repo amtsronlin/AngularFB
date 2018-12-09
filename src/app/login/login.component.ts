@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
   url = "/api/";
 
   constructor(private router: Router, private loginService: LoginService, private token: TokenStorage) {}
-  credentials = {username: 'user', password: 'password'};
+  credentials = {username: 'alex123', password: 'alex123'};
 
   ngOnInit() {
   }
