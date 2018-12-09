@@ -20,8 +20,6 @@ export class LoginComponent implements OnInit {
   login() {
     this.loginService.attemptAuth(this.credentials.username, this.credentials.password).subscribe(
       data => {
-        console.log(data);
-        console.log(data.result.token);
         this.token.saveToken(data.result.token);
         this.router.navigate(['user']);
       }
