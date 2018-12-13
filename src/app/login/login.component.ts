@@ -11,7 +11,7 @@ import { TokenStorage } from '../core/token.storage';
 })
 export class LoginComponent implements OnInit {
   url = "/api/";
-
+  error = false;
   constructor(private router: Router, private loginService: LoginService, private token: TokenStorage) {}
   credentials = {username: 'alex123', password: 'alex123'};
 
